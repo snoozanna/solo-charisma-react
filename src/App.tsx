@@ -30,10 +30,12 @@ function App() {
   );
 
   const sufficientParameters = conversationParameters.storyId;
+  console.log("sufficientParameters", sufficientParameters);
+  console.log("confirmed", confirmed);
 
   return (
     <div className="App">
-      {/* <PlaySetup
+      <PlaySetup
         conversationParameters={conversationParameters}
         setConversationParameters={(args) => {
           setConversationParameters(args);
@@ -41,7 +43,7 @@ function App() {
         }}
         disabled={confirmed}
       />
-      <br /> */}
+      <br />
       <div className="appContainer">
         {!apiKey ? "Please set your API key" : null}
         {sufficientParameters && !confirmed && apiKey ? (
