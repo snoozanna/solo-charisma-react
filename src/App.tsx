@@ -28,6 +28,7 @@ function App() {
       localStorage.getItem(LOCAL_STORAGE_KEY) || emptyParametersString,
     ) as PlayParameters,
   );
+  console.log("conversationParameters", conversationParameters);
 
   const sufficientParameters = conversationParameters.storyId;
   console.log("sufficientParameters", sufficientParameters);
