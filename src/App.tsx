@@ -5,13 +5,8 @@ import MyChat from "./MyChat";
 import ConeyChat from "./ConeyChat";
 import "./styles/App.css";
 
-//
-// Add your key here!
-//
-const apiKey = "c0b29168-8334-4bc7-8679-1b94b858f457";
-//
-//
-
+const apiKey = process.env.REACT_APP_CHARISMA_API_KEY;
+console.log("apiKey", apiKey);
 const emptyParameters: PlayParameters = {
   storyId: 0,
   version: -1,

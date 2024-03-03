@@ -10,7 +10,7 @@ import "./styles/ConeyChat.css";
 
 type MyChatProps = {
   conversationParameters: PlayParameters;
-  apiKey: string;
+  apiKey: string | undefined;
 };
 
 const MyChat = ({ conversationParameters, apiKey }: MyChatProps) => {
