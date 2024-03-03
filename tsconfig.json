@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/setupEnv.js"]
+  "include": ["src", "setupEnv.js"]
 }

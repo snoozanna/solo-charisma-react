@@ -32,6 +32,7 @@ function App() {
   const sufficientParameters = conversationParameters.storyId;
   console.log("sufficientParameters", sufficientParameters);
   console.log("confirmed", confirmed);
+  console.log("apiKey", apiKey);
 
   return (
     <div className="App">
