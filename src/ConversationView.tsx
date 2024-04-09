@@ -119,6 +119,15 @@ const ConversationView = ({
           <RecordingIndicator service={service} />
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <button>
+        <a href="" target="_blank">
+          Conversation over
+        </a>
+      </button>
     </div>
   );
 };
