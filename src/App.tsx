@@ -6,6 +6,7 @@ import ConeyChat from "./ConeyChat";
 import "./styles/App.css";
 
 const apiKey = process.env.REACT_APP_CHARISMA_API_KEY;
+// const apiKey = "c562e6a0-1f1e-4d91-8bc4-ac78408d14a8";
 console.log("apiKey", apiKey);
 const emptyParameters: PlayParameters = {
   storyId: 0,
@@ -32,14 +33,6 @@ function App() {
 
   return (
     <div className="App">
-      <PlaySetup
-        conversationParameters={conversationParameters}
-        setConversationParameters={(args) => {
-          setConversationParameters(args);
-          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(args));
-        }}
-        disabled={confirmed}
-      />
       <br />
       <div className="appContainer">
         {!apiKey ? "Please set your API key" : null}
