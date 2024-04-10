@@ -8,10 +8,17 @@ import "./styles/App.css";
 const apiKey = process.env.REACT_APP_CHARISMA_API_KEY;
 // const apiKey = "c562e6a0-1f1e-4d91-8bc4-ac78408d14a8";
 console.log("apiKey", apiKey);
+// const emptyParameters: PlayParameters = {
+//   storyId: 0,
+//   version: -1,
+//   startGraphReferenceId: "",
+//   charismaUrl: "https://play.charisma.ai",
+// };
+
 const emptyParameters: PlayParameters = {
-  storyId: 0,
-  version: -1,
-  startGraphReferenceId: "",
+  storyId: 27575,
+  version: 2,
+  startGraphReferenceId: "Interview",
   charismaUrl: "https://play.charisma.ai",
 };
 
@@ -33,6 +40,15 @@ function App() {
 
   return (
     <div className="App">
+      <PlaySetup
+        conversationParameters={conversationParameters}
+        setConversationParameters={(args) => {
+          setConversationParameters(args);
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(args));
+        }}
+        disabled={confirmed}
+      />
+      <br />
       <br />
       <div className="appContainer">
         {!apiKey ? "Please set your API key" : null}
