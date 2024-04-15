@@ -3,7 +3,7 @@ import {
   usePlaythroughContext,
 } from "@charisma-ai/react";
 import { useState } from "react";
-import mic1 from "./assets/img/mic1.png";
+// import mic1 from "./assets/img/mic1.png";
 
 const speechRecognitionStartEvent: SpeechRecognitionStartEvent = {
   service: "unified:deepgram",
@@ -30,7 +30,7 @@ const RecordingSwitch = () => {
   return (
     <button onClick={recordingSwitch} disabled={!playthrough}>
       🎤
-      <img src={mic1} />
+      {/* <img src={mic1} /> */}
     </button>
   );
 };
