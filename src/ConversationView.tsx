@@ -7,6 +7,8 @@ import {
 } from "@charisma-ai/react";
 import RecordingSwitch from "./RecordingSwitch";
 import MessagesView from "./MessagesView";
+import Header from "./Header";
+import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import RecordingIndicator from "./RecordingIndicator";
 
@@ -26,7 +28,7 @@ const ConversationView = ({
   const { messages, start, inputValue, reply, type } = useConversation({
     conversationUuid,
   });
-
+  console.log("messages", messages);
   const handleSpeechRecognitionResponse = (
     speechRecognitionResponse: SpeechRecognitionResponse,
   ) => {
@@ -85,53 +87,35 @@ const ConversationView = ({
   if (playthroughContext?.connectionStatus !== "connected") {
     return <div>Connecting...</div>;
   }
-
+  console.log(
+    "playthroughContext.connectionStatus",
+    playthroughContext.connectionStatus,
+  );
   return (
-    <div className="convoWrapper">
-      <div className="startWrapper">
-        <button onClick={() => start({ startGraphReferenceId })}>Start</button>
-        <div
-          className={`connectionStatus ${
-            playthroughContext.connectionStatus === "connected"
-              ? "connected"
-              : ""
-          }`}
-        ></div>
+    <>
+      <Header connectionStatus={playthroughContext.connectionStatus} />
+      <div className="convoWrapper">
+        {messages.length ? (
+          <div className="messagesWrapper">
+            <MessagesView messages={messages} />
+          </div>
+        ) : (
+          <div className="startWrapper">
+            <span className=" button-wrapper">
+              <button onClick={() => start({ startGraphReferenceId })}>
+                Start
+              </button>
+            </span>
+          </div>
+        )}
       </div>
-
-      <br />
-      <br />
-      <div className="messagesWrapper">
-        <MessagesView messages={messages} />
-        <br />
-        <div>
-          <input
-            className="typeInput"
-            onChange={({ currentTarget: { value } }) => type(value)}
-            value={inputValue}
-            onKeyDown={({ key }) => {
-              if (key === "Enter") {
-                reply({ text: inputValue });
-              }
-            }}
-          />{" "}
-          <RecordingSwitch />
-          <RecordingIndicator service={service} />
-        </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <button>
-        <a
-          href="https://deft-gaufre-490f8b.netlify.app/phone3.html"
-          target="_blank"
-        >
-          Conversation over
-        </a>
-      </button>
-    </div>
+      <Footer
+        service={service}
+        inputValue={inputValue}
+        type={type}
+        reply={reply}
+      />
+    </>
   );
 };
 

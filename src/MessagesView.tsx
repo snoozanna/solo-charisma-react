@@ -1,4 +1,5 @@
 import { StoredMessage } from "@charisma-ai/react";
+import "./styles/MessagesView.css";
 
 type MessageViewProps = {
   messages: StoredMessage[];
